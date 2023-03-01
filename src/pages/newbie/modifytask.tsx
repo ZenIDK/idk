@@ -1,5 +1,5 @@
-function modifytask() {
-  return <div>modifytask</div>
+function modifyTask() {
+  return <div>Modify task page for manager</div>
 }
 
-export default modifytask
+export default modifyTask
