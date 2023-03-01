@@ -1,5 +1,17 @@
+import Layout from "@/components/layout"
+import Welcome from "@/components/welcome"
+
 function login() {
-  return <div>Hello world</div>
+  return (
+    <>
+      <Welcome />
+      <Layout>
+        <div className="login">
+          {/* TODO: Text box, login form, submit button, button routing */}
+        </div>
+      </Layout>
+    </>
+  )
 }
 
 export default login
