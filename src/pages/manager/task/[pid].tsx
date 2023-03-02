@@ -10,7 +10,7 @@ const Task = () => {
   const { pid } = router.query
   const [tasksdata, setTaskdata] = useState()
   const complete = async() => {
-    //TODO: add new entry to task table
+    //TODO: update tasksdata with the data from taskboard
     const { error } = await supabase.from('Tasks').insert(tasksdata)
     router.push('/manager')
   }
