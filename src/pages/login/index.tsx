@@ -19,9 +19,7 @@ export default function login({manager, hiree}) {
     if (hiree?.some((item: { email: string; }) => item.email === email)) {
         return router.push('/newbie')
     }
-    // TODO: Get role from db
-    // if role == manager, router.push('/manager')
-    // else, router.push('/newbie')
+    // TODO: throw error when login fails (optional if you wanna demo)
   }
   const scrollToBottom = () => {
     window.scrollTo({
