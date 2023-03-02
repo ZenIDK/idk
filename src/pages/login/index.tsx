@@ -1,39 +1,25 @@
+import { supabase } from './../lib/supabaseClient';
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Layout from "@/components/layout";
 import styles from "../../styles/login.module.css";
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
  
 
-export default function login() {
+export default function login({manager, hiree}) {
   const router = useRouter();
   const [role, setRole] = useState();
   const bottomRef = useRef(null);
-  const login = async(event) => {
-    event.preventDefault()
-    
-    const data = {
-      email: event.target.email.value,
+  const [email, setEmail] = useState("");
+  const login = (e) => {
+    e.preventDefault()
+    if (manager?.some((item: { email: string; }) => item.email === email)) {
+        return router.push('/manager')
     }
-
-    const jsonData = JSON.stringify(data)
-    //DB endpoint, if needed
-    const endpoint = ''
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonData
+    if (hiree?.some((item: { email: string; }) => item.email === email)) {
+        return router.push('/newbie')
     }
-
-    const response = await fetch(endpoint, options)
-
-    //use response to determine role
-
-    // TODO: Get role from db
-    // if role == manager, router.push('/manager')
-    // else, router.push('/newbie')
+    // TODO: throw error when login fails (optional if you wanna demo)
   }
   const scrollToBottom = () => {
     window.scrollTo({
@@ -53,7 +39,7 @@ export default function login() {
             <p className={styles.prompt}>Tell us more about yourself</p>
             <input className={styles.input} type="text"></input>
             <p className={styles.prompt}>Email Address</p>
-            <input className={styles.email} type="text" id="email" name="email" required></input>
+            <input className={styles.email} type="text" value={email} onChange={e => setEmail(e.target.value)}></input>
             <br />
             <button className={styles.button} onClick={login}>LOGIN</button>
           </form>
@@ -62,3 +48,15 @@ export default function login() {
     </>
   )
 }
+
+export async function getServerSideProps() {
+    let { data: managerdata } = await supabase.from('Manager').select()
+    let { data:hireedata } = await supabase.from('Hiree').select()
+    return {
+      props: {
+       manager: managerdata,
+       hiree: hireedata
+      },
+    }
+  }
+  
