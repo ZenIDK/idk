@@ -1,9 +1,12 @@
 import { useEffect } from 'react'
 import Layout from '@/components/layout'
 import TaskBox from '@/components/taskBox'
+import { useRouter } from 'next/router'
 
 function Dashboard() {
   console.log('hi')
+  const router = useRouter()
+  console.log(router.query)
 
   return (
     <>
