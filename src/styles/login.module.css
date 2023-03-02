@@ -1,0 +1,50 @@
+.login {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    z-index: 10 !important;
+}
+
+.header {
+    padding-top: 5vh;
+    color: white;
+    font-size: 7rem !important;
+}
+
+.prompt {
+    padding-top: 4vh;
+    color: rgb(199, 181, 157);
+    font-size: 3.5rem !important;
+    padding-bottom: 2.5vh;
+}
+
+.input {
+    height: 20vh !important;
+    width: 50vw !important;
+    background-color: rgba(0, 0, 0, 0.026) !important;
+    opacity: 1;
+    border-color: aliceblue !important;
+    border-radius: 20px;
+}
+
+.email {
+    height: 5vh;
+    width: 20vw;
+    border-color: aliceblue !important;
+    background-color: rgba(0, 0, 0, 0.026) !important;
+    border-radius: 15px;
+}
+
+.button {
+    margin-top: 2vh;
+    height: 3vh;
+    width: 5vw;
+    border-width: 2px !important;
+    border-color: aliceblue !important;
+    background-color: rgba(0, 0, 0, 0.26) !important;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+}
+
+.button:hover {
+    cursor: pointer;
+}

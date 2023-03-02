@@ -1,4 +1,6 @@
-function Layout(props: any) {
+//TODO: Fix parallax_cover class
+
+export default function Layout({ children }) {
   return (
     <>
       <div className='parallax'>
@@ -23,10 +25,10 @@ function Layout(props: any) {
         <div className='parallax__layer parallax__layer__6'>
           <img src='https://github.com/samdbeckham/blog/blob/master/dev/_assets/images/articles/firewatch/layer_6.png?raw=true' />
         </div>
-        <div className='parallax__cover'></div>
+        <div className='parallax__cover'>
+          <main>{children}</main>
+        </div>
       </div>
     </>
   )
 }
-
-export default Layout
