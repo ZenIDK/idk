@@ -1,10 +1,12 @@
 import TaskBoard from '@/components/taskboard';
 import { useRouter } from 'next/router'
-import styles from "../../../styles/task.module.css";
+import styles from "../../../../styles/task.module.css";
 
 export default function Task() {
   const router = useRouter()
-  const { pid } = router.query
+  const pid = router.query.pid
+  const email = router.query.email
+
   const complete = async() => {
     //TODO: add new entry to completed table
     router.push('/newbie')
@@ -14,7 +16,7 @@ export default function Task() {
     <>
         <div className={styles.task}>
             <p className={styles.welcome}>Welcome to Task {pid}</p>
-            <TaskBoard />
+            <TaskBoard email={email}/>
             <button className={styles.button} onClick={complete}>Complete</button>
         </div>
     </>
