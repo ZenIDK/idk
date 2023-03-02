@@ -1,0 +1,55 @@
+.createTaskContainer {
+  background-color: plum;
+  height: 1050px;
+  width: 800px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.title {
+  color: black;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.inputBoxTask {
+  width: 500px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.inputBoxSteps {
+  width: 500px;
+  height: 200px;
+  border-radius: 30px;
+}
+
+.inputBoxVideo {
+  width: 500px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.inputBoxETA {
+  width: 500px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.inputBoxETC {
+  width: 500px;
+  height: 200px;
+  border-radius: 30px;
+}
+
+.submitBtn {
+  margin-top: 50px;
+  width: 150px;
+  height: 50px;
+  font-size: larger;
+  border-radius: 15px;
+  background-color: purple;
+  cursor: pointer;
+}
