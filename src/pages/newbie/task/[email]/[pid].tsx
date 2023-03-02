@@ -1,6 +1,7 @@
 import TaskBoard from '@/components/taskboard';
 import { useRouter } from 'next/router'
 import styles from "../../../../styles/task.module.css";
+import { supabase } from '../../../lib/supabaseClient';
 
 export default function Task() {
   const router = useRouter()
@@ -8,7 +9,7 @@ export default function Task() {
   const email = router.query.email
 
   const complete = async() => {
-    //TODO: add new entry to completed table
+    const {error} = await supabase.from('Completed').insert({email: email, task: pid})
     router.push('/newbie')
   }
 
