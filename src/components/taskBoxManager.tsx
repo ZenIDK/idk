@@ -1,12 +1,12 @@
 import Link from 'next/link'
-function TaskBox(id: number, description: string) {
+function TaskBoxManager(id: number, description: string) {
   return (
     <div className='taskBoxContainer'>
       <Link
         href='/newbie/task/1'
         style={{ textDecoration: 'none', color: 'black' }}
       >
-        <div className='taskBox' id='taskBox1'>
+        <div className='taskBox' id='taskBox2' style={{ width: '3.3cm' }}>
           <br></br>
           Task 1<p>Meet your team!</p>
         </div>
@@ -27,12 +27,20 @@ function TaskBox(id: number, description: string) {
         <br></br>
         Task 5<p>Set up local env</p>
       </div>
-      <div className='taskBox' id='taskBox6'>
-        <br></br>
-        Task 6<p>Access requests</p>
-      </div>
+      <Link
+        href='/manager/createtask'
+        style={{ textDecoration: 'none', color: 'black' }}
+      >
+        <div
+          className='taskBox'
+          id='taskBox6Manager'
+          style={{ width: '3.3cm' }}
+        >
+          <br></br> <br></br>➕ ADD TASK
+        </div>
+      </Link>
     </div>
   )
 }
 
-export default TaskBox
+export default TaskBoxManager
