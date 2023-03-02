@@ -10,11 +10,20 @@ function Dashboard() {
       <h1 className='newbie'>👋 Welcome to Zendesk, Jonathan!</h1>
       <div className='mainContainer'>
         <div className='taskContainer'>
-          <div>Task(s)</div>
+          <h2
+            style={{
+              marginLeft: '30px',
+              marginTop: '30px',
+              textAlign: 'center'
+            }}
+          >
+            Task(s)
+          </h2>
           <TaskBox />
         </div>
       </div>
-      <Layout></Layout>
+
+      {/* <Layout></Layout> */}
     </>
   )
 }
