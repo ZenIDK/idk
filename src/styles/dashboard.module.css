@@ -1,0 +1,123 @@
+.taskContainer {
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 550px;
+  width: 800px;
+
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.logo {
+  margin-bottom: -330px;
+  margin-left: 1230px;
+}
+
+.parentContainer {
+  display: flex;
+  height: 450px;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.childTask {
+  border-radius: 15px;
+  background-color: rgba(150, 175, 197, 0.341);
+  height: 190px;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  padding-top: 50px;
+  position: relative;
+}
+
+/* everything else */
+.taskContainer2 {
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 300px;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.parentContainer2 {
+  display: flex;
+  height: 450px;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Manager dashboard */
+
+.taskContainerManager {
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 600px;
+  width: 800px;
+
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.managerParentContainer {
+  display: flex;
+  height: 450px;
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.managerChildTask {
+  border-radius: 15px;
+  background-color: rgba(150, 175, 197, 0.341);
+  height: 190px;
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  padding-top: 50px;
+  position: relative;
+}
+
+.taskBtn {
+  width: 100px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 2px;
+  cursor: grab;
+}
+
+/* everything else */
+.ManagerTaskContainer2 {
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 300px;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 20px;
+}
