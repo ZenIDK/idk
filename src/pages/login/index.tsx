@@ -1,6 +1,6 @@
 import { supabase } from './../lib/supabaseClient';
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import styles from "../../styles/login.module.css";
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
@@ -13,11 +13,19 @@ export default function login({manager, hiree}) {
   const [email, setEmail] = useState("");
   const login = (e) => {
     e.preventDefault()
+    let combined = manager.concat(hiree)
+    let team = []
+    for (const item of combined) {
+        if (email === item["email"]) {
+            team.push(item["team"])
+        }
+    }
+    console.log(team)
     if (manager?.some((item: { email: string; }) => item.email === email)) {
-        return router.push('/manager')
+        return router.push({pathname: '/manager', query: {email: email, team: team}})
     }
     if (hiree?.some((item: { email: string; }) => item.email === email)) {
-        return router.push('/newbie')
+        return router.push({pathname: '/newbie', query: {email: email, team: team}})
     }
     // TODO: throw error when login fails (optional if you wanna demo)
   }
