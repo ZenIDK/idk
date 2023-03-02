@@ -25,8 +25,15 @@ function Dashboard({ pid, task }) {
         tasks.push(item)
     }
   }
-  console.log(task)
-  console.log(tasks)
+  const navigate = (task) => {
+    console.log(task)
+    task["email"] = email
+    task["team"] = team
+    return router.push({
+        pathname: `/newbie/task/x/` + task["task"],
+        query: task
+      })
+  }
 
   return (
     <>
@@ -107,13 +114,14 @@ function Dashboard({ pid, task }) {
                 />
               </Link> */}
               {tasks.map((tsk) => (
-                <Link href={`/newbie/task/x/` + tsk["task"]}>
+                <a onClick={() => navigate(tsk)} style={{cursor: "pointer"}}>
                     <NewbieTask
                     taskNumber={tsk["task"]}
                     taskTitle={tsk["details"]}
                     isCompleted={tsk["completed"]}
+                    
                 />
-                </Link>
+                </a>
                 ))}
                 
               {/* <NewbieTask taskNumber={7} /> */}
@@ -127,7 +135,7 @@ function Dashboard({ pid, task }) {
           <div className={inter.className}>
             <div className={styles.parentContainer2}>
               <Link href={`/glossary`}>
-                <Everythingelse name={'Glossary'} icon={'/glossary.png'} />
+                <Everythingelse name={'Glossary'} icon={'/glossary.png'}/>
               </Link>
               <Link href={`/channel`}>
                 <Everythingelse name={'Channels'} icon={'/slack-logo.png'} />

@@ -1,51 +1,56 @@
 import { useState, useEffect } from 'react'
 import styles from '../styles/task.module.css'
 import { Inter } from 'next/font/google'
+import { supabase } from '../pages/lib/supabaseClient'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function TaskBoard(props) {
-  const [details, setDetails] = useState()
-  const [steps, setSteps] = useState()
-  const [video, setVideo] = useState()
+  const team = props.info.team
+  const task = props.info
+  const email = props.info.email
+  const [details, setDetails] = useState(task["details"])
+  const [steps, setSteps] = useState(task["steps"])
+  const [video, setVideo] = useState(task["video_url"])
   const [isLoading, setLoading] = useState(false)
-  const email = props.email
 
-  //DB endpoint
-  const details_endpoint = ''
-  useEffect(() => {
-    setLoading(true)
-    fetch(details_endpoint)
-      .then((res) => res.json())
-      .then((data) => {
-        setDetails(data)
-        setLoading(false)
-      })
-  }, [])
+  console.log(props)
 
-  const steps_endpoint = ''
-  useEffect(() => {
-    setLoading(true)
-    fetch(steps_endpoint)
-      .then((res) => res.json())
-      .then((data) => {
-        setSteps(data)
-        setLoading(false)
-      })
-  }, [])
+//   //DB endpoint
+//   const details_endpoint = ''
+//   useEffect(() => {
+//     setLoading(true)
+//     fetch(details_endpoint)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setDetails(data)
+//         setLoading(false)
+//       })
+//   }, [])
 
-  const video_endpoint = ''
-  useEffect(() => {
-    setLoading(true)
-    fetch(video_endpoint)
-      .then((res) => res.json())
-      .then((data) => {
-        setVideo(data)
-        setLoading(false)
-      })
-  }, [])
+//   const steps_endpoint = ''
+//   useEffect(() => {
+//     setLoading(true)
+//     fetch(steps_endpoint)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setSteps(data)
+//         setLoading(false)
+//       })
+//   }, [])
 
-  if (isLoading) return <p>Loading...</p>
+//   const video_endpoint = ''
+//   useEffect(() => {
+//     setLoading(true)
+//     fetch(video_endpoint)
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setVideo(data)
+//         setLoading(false)
+//       })
+//   }, [])
+
+//   if (isLoading) return <p>Loading...</p>
 
   return (
     <>

@@ -6,20 +6,21 @@ import { supabase } from '../../../lib/supabaseClient'
 export default function Task() {
   const router = useRouter()
   const pid = router.query.pid
-  const email = router.query.email
-
+  const {task, team} = router.query
   const complete = async () => {
     const { error } = await supabase
-      .from('Completed')
-      .insert({ email: email, task: pid })
-    router.push('/newbie')
+      .from('Tasks')
+      .upsert({team:team, task:task, completed: true})
+      .eq('team', team).eq('task', task)
+    console.log(error)
+    router.back()
   }
 
   return (
     <>
       <div className={styles.task}>
         <p className={styles.welcome}>Welcome to Task {pid}</p>
-        <TaskBoard email={email} />
+        <TaskBoard info={router.query}/>
         <button className={styles.button} onClick={complete}>
           Complete
         </button>
