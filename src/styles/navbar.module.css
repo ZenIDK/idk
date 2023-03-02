@@ -1,0 +1,31 @@
+.mainnav {
+    font-family: sans-serif;
+    font-size: 2rem !important;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 10vh;
+}
+
+.team {
+    padding-left: 5vw;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20vw;
+}
+
+.item {
+    padding: 1vh 5vw;
+}
+
+.item:hover {
+    color: rgb(181, 119, 4);
+}

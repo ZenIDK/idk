@@ -1,0 +1,56 @@
+.task {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10vh;
+}
+
+.welcome {
+    padding-top: 5vh;
+    color: white;
+    font-size: 5rem !important;
+}
+
+.header {
+    padding-top: 4vh;
+    padding-right: 25vw;
+    color: rgb(199, 181, 157);
+    font-size: 2.5rem !important;
+    padding-bottom: 2.5vh;
+}
+
+.content {
+    display: flex;
+    justify-content: left;
+    height: 20vh !important;
+    width: 50vw !important;
+    background-color: rgba(0, 0, 0, 0.026) !important;
+    opacity: 1;
+    border-color: aliceblue !important;
+    border-radius: 20px;
+    line-height: 2.5rem;
+}
+
+.details, .steps, .video {
+    padding-left: 2vw;
+}
+
+.button {
+    margin-top: 2vh;
+    height: 3vh;
+    width: 5vw;
+    border-width: 2px !important;
+    border-color: aliceblue !important;
+    background-color: rgb(76, 179, 247) !important;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    margin-top: 5vh;
+    margin-left: 40vw;
+}
+
+.button:hover {
+    cursor: pointer;
+}
