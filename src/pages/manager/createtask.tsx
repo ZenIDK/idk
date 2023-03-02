@@ -5,31 +5,38 @@ import { useRouter } from 'next/router'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
-const CreateTask = ({}) => {
+const CreateTask = ({task}) => {
   const router = useRouter()
   const [taskTitle, setTaskTitle] = useState('')
   const [steps, setSteps] = useState('')
   const [videoUrl, setVideoUrl] = useState('')
   const [estimatedTime, setEstimatedTime] = useState('')
   const [additionalInfo, setAdditionalInfo] = useState('')
+  const { email, team} = router.query
 
   const handleSubmit = (event) => {
     event.preventDefault()
     addTask()
-    router.push('/manager')
+    router.back()
   }
 
   const addTask = async () => {
-    await supabase
+    let tasknum = 1
+    for (const item of task) {
+        if (team === item["team"]) {
+            tasknum++
+        }
+    }
+    const {error} = await supabase
       .from('Tasks')
       .insert({
-        team: 'Falcon',
-        task: 4,
-        details: { taskTitle },
-        steps: { steps },
-        video_url: { videoUrl }
+        team: team,
+        task: tasknum,
+        details: taskTitle ,
+        steps: steps,
+        video_url: videoUrl 
       })
-      .select()
+    console.log(error)
   }
   return (
     <>
@@ -110,5 +117,16 @@ const CreateTask = ({}) => {
     </>
   )
 }
+
+export async function getServerSideProps() {
+    const {data, error} = await supabase.from("Tasks").select().order("task")
+    console.log(data)
+    return {
+      props: {
+       task: data
+      },
+    }
+  }
+
 
 export default CreateTask

@@ -35,7 +35,12 @@ function Dashboard({ pid, task }) {
         tasks.push(item)
     }
   }
-
+  const navigate = () => {
+    return router.push({
+        pathname: '/manager/createtask',
+        query: { email: email, team: team }
+      })
+  }
   return (
     <>
       <div
@@ -122,9 +127,9 @@ function Dashboard({ pid, task }) {
                 </Link>
                 ))}
             </div>
-            <Link href={`/manager/createtask`}>
-              <button className={styles.taskBtn}>Add task</button>
-            </Link>
+            {/* <Link href={`/manager/createtask`}> */}
+              <button className={styles.taskBtn} onClick={navigate}>Add task</button>
+            {/* </Link> */}
           </div>
         </div>
         <div className={styles.ManagerTaskContainer2}>
