@@ -10,10 +10,11 @@ import Everythingelse from '@/components/everythingelse'
 import { supabase } from './../lib/supabaseClient'
 
 import { Inter } from 'next/font/google'
+import { useRouter } from 'next/router'
 
 const inter = Inter({ subsets: ['latin'] })
 
-function Dashboard({ pid }) {
+function Dashboard({ pid, task }) {
   const outstandingTaskCount: number = 6
 
   const [taskCount, setTaskCount] = useState('')
@@ -25,6 +26,15 @@ function Dashboard({ pid }) {
         .then((res) => console.log(res))
     }
   })
+  const router = useRouter()
+  const {email, team} = router.query
+  let tasks = []
+  for (const item of task) {
+    console.log(item["details"])
+    if (team === item['team']) {
+        tasks.push(item)
+    }
+  }
 
   return (
     <>
@@ -60,7 +70,7 @@ function Dashboard({ pid }) {
           </p>
           <div className={inter.className}>
             <div className={styles.managerParentContainer}>
-              <Link href={`/newbie/task/x/1`}>
+              {/* <Link href={`/newbie/task/x/1`}>
                 <ManagerTask
                   taskNumber={1}
                   taskTitle={'Meet your team! 👨‍👨‍👧‍👦'}
@@ -101,7 +111,16 @@ function Dashboard({ pid }) {
                   taskTitle={' ̶W̶T̶F̶  WFH budget 🤑'}
                   isCompleted={false}
                 />
-              </Link>
+              </Link> */}
+              {tasks.map((tsk) => (
+                <Link href={`/newbie/task/x/` + tsk["task"]}>
+                    <ManagerTask
+                    taskNumber={tsk["task"]}
+                    taskTitle={tsk["details"]}
+                    isCompleted={tsk["completed"]}
+                />
+                </Link>
+                ))}
             </div>
             <Link href={`/manager/createtask`}>
               <button className={styles.taskBtn}>Add task</button>
@@ -129,5 +148,15 @@ function Dashboard({ pid }) {
     </>
   )
 }
+
+export async function getServerSideProps() {
+    const {data, error} = await supabase.from("Tasks").select().order("task")
+    console.log(data)
+    return {
+      props: {
+       task: data
+      },
+    }
+  }
 
 export default Dashboard
