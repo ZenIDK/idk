@@ -18,6 +18,7 @@ function Dashboard({ pid, task }) {
   const outstandingTaskCount: number = 4
   const router = useRouter()
   const {email, team} = router.query
+  let taskCount = 0
   let tasks = []
   for (const item of task) {
     console.log(item["details"])
@@ -25,6 +26,7 @@ function Dashboard({ pid, task }) {
         tasks.push(item)
     }
   }
+  taskCount = tasks.length
   const navigate = (task) => {
     console.log(task)
     task["email"] = email
@@ -47,7 +49,7 @@ function Dashboard({ pid, task }) {
       >
         <h1
           className={inter.className}
-          style={{ marginTop: '40px', marginBottom: '40px' }}
+          style={{ marginTop: '40px', marginBottom: '40px', color: 'white' }}
         >
           👋 Welcome to Zendesk, Jonathan!
         </h1>
@@ -67,7 +69,7 @@ function Dashboard({ pid, task }) {
             className={inter.className}
             style={{ marginTop: '10px', marginBottom: '10px' }}
           >
-            Outstanding onboarding task(s) : {outstandingTaskCount}
+            Outstanding onboarding task(s) : {taskCount}
           </p>
           <div className={inter.className}>
             <div className={styles.parentContainer}>

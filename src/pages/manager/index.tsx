@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ['latin'] })
 function Dashboard({ pid, task }) {
   const outstandingTaskCount: number = 6
 
-  const [taskCount, setTaskCount] = useState('')
+  let taskCount = 0
   useEffect(() => {
     const getTask = async () => {
       await supabase
@@ -35,6 +35,7 @@ function Dashboard({ pid, task }) {
         tasks.push(item)
     }
   }
+  taskCount = tasks.length
   const navigate = () => {
     return router.push({
         pathname: '/manager/createtask',
@@ -53,7 +54,7 @@ function Dashboard({ pid, task }) {
       >
         <h1
           className={inter.className}
-          style={{ marginTop: '40px', marginBottom: '40px' }}
+          style={{ marginTop: '40px', marginBottom: '40px', color: 'white' }}
         >
           👋 Welcome back, John Doe!
         </h1>
@@ -71,7 +72,7 @@ function Dashboard({ pid, task }) {
             className={inter.className}
             style={{ marginTop: '10px', marginBottom: '10px' }}
           >
-            Total onboarding task(s): {outstandingTaskCount}
+            Total onboarding task(s): {taskCount}
           </p>
           <div className={inter.className}>
             <div className={styles.managerParentContainer}>
