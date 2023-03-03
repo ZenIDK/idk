@@ -1,5 +1,5 @@
 import { supabase } from './../lib/supabaseClient'
-import styles from '@/styles/createtask.module.css'
+import styles from '@/styles/task.module.css'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Inter } from 'next/font/google'
@@ -40,76 +40,62 @@ const CreateTask = ({task}) => {
   }
   return (
     <>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          textAlign: 'center',
-          flexDirection: 'column'
-        }}
-        className={inter.className}
-      >
-        <h1 style={{ marginTop: '40px', marginBottom: '40px' }}>
-          📜 Creating a task ...
-        </h1>
+      <div className={styles.task}>
+        <p className={styles.welcome}>📜 Creating a task ...</p>
         <div className={styles.createTaskContainer}>
           <form onSubmit={handleSubmit}>
             <label>
-              <div className={styles.title}>Task Title</div>
-              <input
+              <div className={styles.header}>Task Title</div>
+              <div className={styles.content}>
+                <input 
+                className={styles.content} 
                 type='text'
                 value={taskTitle}
-                onChange={(event) => setTaskTitle(event.target.value)}
-                className={styles.inputBoxTask}
-                placeholder='              Short and sweet... like "Request for zendesk_console repo access"'
-              />
+                onChange={(event) => setTaskTitle(event.target.value)}/>
+              </div>
             </label>
             <br />
             <label>
-              <div className={styles.title}>Steps</div>
+              <div className={styles.header}>Steps</div>
               <input
                 type='text'
                 value={steps}
                 onChange={(event) => setSteps(event.target.value)}
-                className={styles.inputBoxSteps}
-                placeholder='     In point form, like: 1. Go to xxx.com   2. Click on xxx'
-              />
+                className={styles.content}
+                />
             </label>
             <br />
             <label>
-              <div className={styles.title}>Video URL</div>
+              <div className={styles.header}>Video URL</div>
               <input
                 type='text'
                 value={videoUrl}
                 onChange={(event) => setVideoUrl(event.target.value)}
-                className={styles.inputBoxVideo}
-                placeholder='                             www.youtube.com/watch/fireship/dockerin60secs'
-              />
+                className={styles.content}
+                />
             </label>
             <br />
             <label>
-              <div className={styles.title}>Takes approximately...</div>
+              <div className={styles.header}>Takes approximately...</div>
               <input
                 type='text'
                 value={estimatedTime}
                 onChange={(event) => setEstimatedTime(event.target.value)}
-                className={styles.inputBoxETA}
-                placeholder='                                                            60 minutes'
+                className={styles.content}
               />
             </label>
             <br />
             <label>
-              <div className={styles.title}>Additional info</div>
+              <div className={styles.header}>Additional info</div>
               <input
                 value={additionalInfo}
                 onChange={(event) => setAdditionalInfo(event.target.value)}
-                className={styles.inputBoxETC}
-                placeholder='                                                             Chill out'
-              />
+                className={styles.content}
+                />
             </label>
             <br />
-            <button className={styles.submitBtn} type='submit'>
-              Submit
+            <button className={styles.button} type='submit'>
+              SUBMIT
             </button>
           </form>
         </div>

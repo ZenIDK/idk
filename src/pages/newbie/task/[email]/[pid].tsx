@@ -22,7 +22,7 @@ export default function Task() {
         <p className={styles.welcome}>Welcome to Task {pid}</p>
         <TaskBoard info={router.query}/>
         <button className={styles.button} onClick={complete}>
-          Complete
+          COMPLETE
         </button>
       </div>
     </>
