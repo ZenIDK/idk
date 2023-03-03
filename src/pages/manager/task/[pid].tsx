@@ -23,13 +23,13 @@ const Task = () => {
         <div className={styles.task}>
             <p className={styles.welcome}>Welcome to Task {pid}</p>
             <p className={styles.header}>Details</p>
-            <input className={styles.content}>{detail}</input>
+            <input className={styles.content} type="text"/>
             <p className={styles.header}>Steps</p>
-            <input className={styles.content}>{steps}</input>
+            <input className={styles.content} type="text"/>
             <p className={styles.header}>Video URL</p>
-            <input className={styles.content}>{video}</input>
+            <input className={styles.content} type="text"/>
             <p className={styles.header}>Takes Approximately</p>
-            <input className={styles.content}>60 minutes</input>
+            <input className={styles.content} type="text"/>
             <button className={styles.button} onClick={complete}>Complete</button>
         </div>
     </>
