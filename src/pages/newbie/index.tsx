@@ -71,48 +71,7 @@ function Dashboard({ pid, task }) {
           </p>
           <div className={inter.className}>
             <div className={styles.parentContainer}>
-              {/* <Link href={`/newbie/task/x/1`}>
-                <NewbieTask
-                  taskNumber={1}
-                  taskTitle={'Meet your team! 👨‍👨‍👧‍👦'}
-                  isCompleted={true}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/2`}>
-                <NewbieTask
-                  taskNumber={2}
-                  taskTitle={'Set up your Slack.'}
-                  isCompleted={true}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/3`}>
-                <NewbieTask
-                  taskNumber={3}
-                  taskTitle={'Set up Google Suite.'}
-                  isCompleted={false}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/4`}>
-                <NewbieTask
-                  taskNumber={4}
-                  taskTitle={'Set up Github.'}
-                  isCompleted={false}
-                />
-              </Link> */}
-              {/* <Link href={`/newbie/task/x/5`}>
-                <NewbieTask
-                  taskNumber={5}
-                  taskTitle={'Dev Environment 👨🏼‍💻'}
-                  isCompleted={false}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/6`}>
-                <NewbieTask
-                  taskNumber={6}
-                  taskTitle={' ̶W̶T̶F̶  WFH budget 🤑'}
-                  isCompleted={false}
-                />
-              </Link> */}
+              
               {tasks.map((tsk) => (
                 <a onClick={() => navigate(tsk)} style={{cursor: "pointer"}}>
                     <NewbieTask
@@ -123,9 +82,6 @@ function Dashboard({ pid, task }) {
                 />
                 </a>
                 ))}
-                
-              {/* <NewbieTask taskNumber={7} /> */}
-              {/* <NewbieTask /> */}
             </div>
           </div>
         </div>

@@ -66,6 +66,10 @@ export default function TaskBoard(props) {
       <div className={styles.content}>
         <p className={styles.video}>{video}</p>
       </div>
+      <p className={styles.header}>Takes Approximately</p>
+      <div className={styles.content}>
+        <p className={styles.video}>60 minutes</p>
+      </div>
     </>
   )
 }

@@ -9,7 +9,6 @@
 
 .welcome {
     padding-top: 5vh;
-    color: white;
     font-size: 5rem !important;
 }
 
@@ -26,7 +25,7 @@
     justify-content: left;
     height: 20vh !important;
     width: 50vw !important;
-    background-color: rgba(0, 0, 0, 0.026) !important;
+    background-color: rgba(0, 0, 0, 0.146) !important;
     opacity: 1;
     border-color: aliceblue !important;
     border-radius: 20px;
@@ -35,20 +34,23 @@
 
 .details, .steps, .video {
     padding-left: 2vw;
+    padding-top: 2vh;
+    font-size: 1.5rem;
 }
 
 .button {
     margin-top: 2vh;
-    height: 3vh;
-    width: 5vw;
+    height: 4vh;
+    width: 7.5vw;
     border-width: 2px !important;
     border-color: aliceblue !important;
-    background-color: rgb(76, 179, 247) !important;
+    background-color: rgb(50, 163, 239) !important;
     border-radius: 5px;
     color: white;
     font-size: 1rem;
     margin-top: 5vh;
     margin-left: 40vw;
+    font-size: 1.25rem;
 }
 
 .button:hover {
