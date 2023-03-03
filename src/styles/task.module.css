@@ -10,6 +10,7 @@
 .welcome {
     padding-top: 5vh;
     font-size: 5rem !important;
+    color: white;
 }
 
 .header {
@@ -25,7 +26,7 @@
     justify-content: left;
     height: 20vh !important;
     width: 50vw !important;
-    background-color: rgba(0, 0, 0, 0.146) !important;
+    background-color: rgba(235, 235, 235, 0.69) !important;
     opacity: 1;
     border-color: aliceblue !important;
     border-radius: 20px;
