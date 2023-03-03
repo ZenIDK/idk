@@ -75,48 +75,6 @@ function Dashboard({ pid, task }) {
           </p>
           <div className={inter.className}>
             <div className={styles.managerParentContainer}>
-              {/* <Link href={`/newbie/task/x/1`}>
-                <ManagerTask
-                  taskNumber={1}
-                  taskTitle={'Meet your team! 👨‍👨‍👧‍👦'}
-                  isCompleted={true}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/2`}>
-                <ManagerTask
-                  taskNumber={2}
-                  taskTitle={'Set up your Slack.'}
-                  isCompleted={true}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/3`}>
-                <ManagerTask
-                  taskNumber={3}
-                  taskTitle={'Set up Google Suite.'}
-                  isCompleted={false}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/4`}>
-                <ManagerTask
-                  taskNumber={4}
-                  taskTitle={'Set up Github.'}
-                  isCompleted={false}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/5`}>
-                <ManagerTask
-                  taskNumber={5}
-                  taskTitle={'Dev Environment 👨🏼‍💻'}
-                  isCompleted={false}
-                />
-              </Link>
-              <Link href={`/newbie/task/x/6`}>
-                <ManagerTask
-                  taskNumber={6}
-                  taskTitle={' ̶W̶T̶F̶  WFH budget 🤑'}
-                  isCompleted={false}
-                />
-              </Link> */}
               {tasks.map((tsk) => (
                 <Link href={`manager/task/` + tsk["task"]}>
                     <ManagerTask
@@ -127,10 +85,8 @@ function Dashboard({ pid, task }) {
                 </Link>
                 ))}
             </div>
-            {/* <Link href={`/manager/createtask`}> */}
-              <button className={styles.taskBtn} onClick={navigate}>Add task</button>
-            {/* </Link> */}
           </div>
+          <button className={styles.taskBtn} onClick={navigate}>Add task</button>
         </div>
         <div className={styles.ManagerTaskContainer2}>
           <h2 className={inter.className}>&& Everything else 🔮</h2>
