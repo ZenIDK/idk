@@ -118,7 +118,7 @@ function Dashboard({ pid, task }) {
                 />
               </Link> */}
               {tasks.map((tsk) => (
-                <Link href={`/newbie/task/x/` + tsk["task"]}>
+                <Link href={`manager/task/` + tsk["task"]}>
                     <ManagerTask
                     taskNumber={tsk["task"]}
                     taskTitle={tsk["details"]}
