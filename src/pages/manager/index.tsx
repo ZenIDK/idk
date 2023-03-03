@@ -42,6 +42,16 @@ function Dashboard({ pid, task }) {
         query: { email: email, team: team }
       })
   }
+
+  const navigateTask = (task) => {
+    console.log(task)
+    task["email"] = email
+    task["team"] = team
+    return router.push({
+        pathname: `/manager/task/` + task["task"],
+        query: task
+      })
+  }
   return (
     <>
       <div
@@ -77,13 +87,13 @@ function Dashboard({ pid, task }) {
           <div className={inter.className}>
             <div className={styles.managerParentContainer}>
               {tasks.map((tsk) => (
-                <Link href={`manager/task/` + tsk["task"]}>
+                <a onClick={() => navigateTask(tsk)} style={{cursor: "pointer"}}>
                     <ManagerTask
                     taskNumber={tsk["task"]}
                     taskTitle={tsk["details"]}
                     isCompleted={tsk["completed"]}
                 />
-                </Link>
+                </a>
                 ))}
             </div>
           </div>
